@@ -1,0 +1,127 @@
+<Window 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"	
+        xmlns:RadialMenu="clr-namespace:RadialMenu.Controls;assembly=RadialMenu" 
+        xmlns:Converters="clr-namespace:RadialMenuDemo.Utils"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Width="400" 
+        Height="400"
+		  WindowStartupLocation="CenterScreen"
+        WindowStyle = "None"
+		  AllowsTransparency = "true"
+		  Background="Transparent">
+
+    <Window.Resources>
+        <ResourceDictionary Source="Utils/Icons.xaml"/>
+	</Window.Resources>
+	
+       <Grid>
+		<RadialMenu:RadialMenu Name="MainMenu" IsOpen="True">
+			<RadialMenu:RadialMenu.Resources>
+				<Style  TargetType="RadialMenu:RadialMenuCentralItem">					
+					<Setter Property="Background" Value="#FFB2A3B6"/> <!-- Close button background --> 
+					<Setter Property="BorderBrush" Value="#FF997EA2"/> <!-- Close button border color --> 
+					<Setter Property="BorderThickness" Value="4"/>
+					<Setter Property="Width" Value="64"/>
+					<Setter Property="Height" Value="64"/>
+				</Style>
+				<Style  TargetType="RadialMenu:RadialMenuItem" >
+					<Setter Property="Background" Value="#FFB2A3B6"/> <!-- Background inside pie --> 
+					<Setter Property="Padding" Value="2"/>
+					<Setter Property="InnerRadius" Value="40"/>
+					<Setter Property="OuterRadius" Value="150"/>
+					<Setter Property="ContentRadius" Value="85"/>
+
+					<Setter Property="EdgeBackground" Value="#FF8736A0"/> <!-- Background border Pie --> 
+					<Setter Property="EdgePadding" Value="7"/>
+					<Setter Property="EdgeInnerRadius" Value="130"/>
+					<Setter Property="EdgeOuterRadius" Value="145"/>
+
+					<Setter Property="ArrowBackground" Value="Black"/> <!-- Background arrow --> 
+					<Setter Property="ArrowRadius" Value="138"/>
+				</Style>									
+			</RadialMenu:RadialMenu.Resources>	
+		
+			<RadialMenu:RadialMenu.CentralItem>
+				<RadialMenu:RadialMenuCentralItem Name="Close" Command="{Binding CloseRadialMenu1}">
+				      <iconPacks:PackIconMaterial Kind="CloseOutline" Width="25" Height="25" />
+				</RadialMenu:RadialMenuCentralItem>
+			</RadialMenu:RadialMenu.CentralItem>
+
+			<RadialMenu:RadialMenuItem Name="Drag_Drop" Command="{Binding Test1}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconFontAwesome Kind="ExpandArrowsAltSolid" Margin="25 0 0 5 " Width="25" Height="25" />
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Move Apps
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Open_Apps_Info" Command="{Binding Test1}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconFontAwesome Kind="QuestionSolid" Margin="25 0 0 5 " Width="25" Height="25" />
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Apps Info
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Launch_Project" Command="{Binding Test2}" IsEnabled="false">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconMaterial Kind="RunFast" Margin="5 0 0 5 " Width="25" Height="25"/>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						4.Run  
+					</TextBlock>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Project 
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+			
+			<RadialMenu:RadialMenuItem Name="Create_Project" Command="{Binding Test2}"  IsEnabled="false">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconEntypo Kind="New"  Margin="5 0 0 5 " Width="27" Height="27" />
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0 ">
+						3.Create
+					</TextBlock>
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0 ">
+						project
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Open_Windows_Properties" Command="{Binding Test3}">
+				<WrapPanel Orientation="Vertical" >
+					<iconPacks:PackIconOcticons Kind="Browser"  Margin="20 0 0 5 " Width="25" Height="25"/>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						2.Windows
+					</TextBlock>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Properties
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Open_Project_Settings" Command="{Binding Test5}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconMaterial Kind="SettingsOutline"  Margin="5 -10 0 5 " Width="27" Height="27"/>
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0">
+						1.Project
+					</TextBlock>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Setting
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+		</RadialMenu:RadialMenu>
+
+        </Grid>
+</Window>     
+
+
+   
+   
+    
+    
+    
