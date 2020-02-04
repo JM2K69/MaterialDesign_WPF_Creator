@@ -1,0 +1,258 @@
+<Window 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"	
+        xmlns:RadialMenu="clr-namespace:RadialMenu.Controls;assembly=RadialMenu" 
+        xmlns:Converters="clr-namespace:RadialMenuDemo.Utils"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Width="400" 
+        Height="400"
+		WindowStartupLocation="CenterScreen"
+        WindowStyle = "None"
+		AllowsTransparency = "true"
+		Background="Transparent">
+
+	
+       <Grid>
+		<RadialMenu:RadialMenu Name="M_Choice" IsOpen="True">
+			<RadialMenu:RadialMenu.Resources>
+				<Style  TargetType="RadialMenu:RadialMenuCentralItem">					
+					<Setter Property="Background" Value="AliceBlue"/> <!-- Close button background --> 
+					<Setter Property="BorderBrush" Value="DodgerBlue"/> <!-- Close button border color --> 
+					<Setter Property="BorderThickness" Value="4"/>
+					<Setter Property="Width" Value="64"/>
+					<Setter Property="Height" Value="64"/>
+				</Style>
+
+				<Style  TargetType="RadialMenu:RadialMenuItem" >
+					<Setter Property="Background" Value="AliceBlue"/> <!-- Background inside pie --> 
+					<Setter Property="Padding" Value="2"/>
+					<Setter Property="InnerRadius" Value="40"/>
+					<Setter Property="OuterRadius" Value="150"/>
+					<Setter Property="ContentRadius" Value="85"/>
+
+					<Setter Property="EdgeBackground" Value="DodgerBlue"/> <!-- Background border Pie --> 
+					<Setter Property="EdgePadding" Value="7"/>
+					<Setter Property="EdgeInnerRadius" Value="130"/>
+					<Setter Property="EdgeOuterRadius" Value="145"/>
+
+					<Setter Property="ArrowBackground" Value="white"/> <!-- Background arrow --> 
+					<Setter Property="ArrowRadius" Value="138"/>
+				</Style>									
+			</RadialMenu:RadialMenu.Resources>
+			<RadialMenu:RadialMenu.CentralItem>
+				<RadialMenu:RadialMenuCentralItem Name="M_Close" Command="{Binding CloseRadialMenu1}">
+				    <iconPacks:PackIconMaterial Kind="ExitToApp"  Width="25" Height="25" Flip="Horizontal" />
+				</RadialMenu:RadialMenuCentralItem>
+			</RadialMenu:RadialMenu.CentralItem>
+
+			<RadialMenu:RadialMenuItem Name="Open_Apps_Info">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconFontAwesome Kind="QuestionSolid" Margin="25 0 0 5 " Width="25" Height="25" />
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Apps Info
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+			<RadialMenu:RadialMenuItem Name="F_Drag_Drop" Command="{Binding Test1}">
+      				<WrapPanel Orientation="Vertical">
+      					<iconPacks:PackIconFontAwesome Kind="ExpandArrowsAltSolid" Margin="10 0 0 5 " Width="32" Height="32" />
+      					<TextBlock FontSize="14" TextAlignment="Center">
+      						Move Me
+      					</TextBlock>
+      				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Mahapps_Application" Command="{Binding Test1}">
+				<WrapPanel Orientation="Vertical">
+						<Image Source="MahApps.png" Width="48" Height="48" Margin="10 0 0 0"/>
+					<TextBlock FontSize="14" TextAlignment="Center" Margin="5 0 0 0">
+						Mahapps 
+					</TextBlock>				
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="MaterialD_Application" Command="{Binding Test2}">
+				<WrapPanel Orientation="Vertical">
+					<Image Source="MD4XAML64.png" Width="40" Height="40" Margin="0 0 0 5"/>
+					<TextBlock FontSize="13" Margin="-20 0 0 0" TextAlignment="Center">
+						Material Design
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>		
+		</RadialMenu:RadialMenu>
+
+		<RadialMenu:RadialMenu Name="MainMenu" IsOpen="True">
+			<RadialMenu:RadialMenu.Resources>
+				<Style  TargetType="RadialMenu:RadialMenuCentralItem">					
+					<Setter Property="Background" Value="AliceBlue"/> <!-- Close button background --> 
+					<Setter Property="BorderBrush" Value="LightSkyBlue"/> <!-- Close button border color --> 
+					<Setter Property="BorderThickness" Value="4"/>
+					<Setter Property="Width" Value="64"/>
+					<Setter Property="Height" Value="64"/>
+				</Style>
+
+				<Style  TargetType="RadialMenu:RadialMenuItem" >
+					<Setter Property="Background" Value="AliceBlue"/> <!-- Background inside pie --> 
+					<Setter Property="Padding" Value="2"/>
+					<Setter Property="InnerRadius" Value="40"/>
+					<Setter Property="OuterRadius" Value="150"/>
+					<Setter Property="ContentRadius" Value="85"/>
+
+					<Setter Property="EdgeBackground" Value="LightSkyBlue"/> <!-- Background border Pie --> 
+					<Setter Property="EdgePadding" Value="7"/>
+					<Setter Property="EdgeInnerRadius" Value="130"/>
+					<Setter Property="EdgeOuterRadius" Value="145"/>
+
+					<Setter Property="ArrowBackground" Value="white"/> <!-- Background arrow --> 
+					<Setter Property="ArrowRadius" Value="138"/>
+				</Style>									
+			</RadialMenu:RadialMenu.Resources>
+			<RadialMenu:RadialMenu.CentralItem>
+				<RadialMenu:RadialMenuCentralItem Name="Close" Command="{Binding CloseRadialMenu1}">
+					  <iconPacks:PackIconFontAwesome Kind="UndoAltSolid" Width="25" Height="25" />
+				</RadialMenu:RadialMenuCentralItem>
+			</RadialMenu:RadialMenu.CentralItem>
+
+			<RadialMenu:RadialMenuItem Name="Drag_Drop" Command="{Binding Test1}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconFontAwesome Kind="ExpandArrowsAltSolid" Margin="25 0 0 5 " Width="25" Height="25" />
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Move Apps
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Launch_Project" Command="{Binding Test2}" IsEnabled="false">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconMaterial Kind="RunFast" Margin="25 0 0 5 " Width="25" Height="25"/>
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Run Project 
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+			
+			<RadialMenu:RadialMenuItem Name="Create_Project" Command="{Binding Test2}"  IsEnabled="false">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconEntypo Kind="New"  Margin="25 0 0 5 " Width="27" Height="27" />
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0 ">
+						Create project
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Open_Windows_Properties" Command="{Binding Test3}">
+				<WrapPanel Orientation="Vertical" >
+					<iconPacks:PackIconOcticons Kind="Browser"  Margin="20 0 0 5 " Width="25" Height="25"/>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Windows
+					</TextBlock>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Properties
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="Open_Project_Settings" Command="{Binding Test5}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconMaterial Kind="SettingsOutline"  Margin="25 -10 0 5 " Width="27" Height="27"/>
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0">
+						Project Setting
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+		</RadialMenu:RadialMenu>
+
+		
+		<RadialMenu:RadialMenu Name="Ma_MainMenu" IsOpen="False">
+			<RadialMenu:RadialMenu.Resources>
+				<Style  TargetType="RadialMenu:RadialMenuCentralItem">					
+					<Setter Property="Background" Value="AliceBlue"/> <!-- Close button background --> 
+					<Setter Property="BorderBrush" Value="DodgerBlue"/> <!-- Close button border color --> 
+					<Setter Property="BorderThickness" Value="4"/>
+					<Setter Property="Width" Value="64"/>
+					<Setter Property="Height" Value="64"/>
+				</Style>
+
+				<Style  TargetType="RadialMenu:RadialMenuItem" >
+					<Setter Property="Background" Value="AliceBlue"/> <!-- Background inside pie --> 
+					<Setter Property="Padding" Value="2"/>
+					<Setter Property="InnerRadius" Value="40"/>
+					<Setter Property="OuterRadius" Value="150"/>
+					<Setter Property="ContentRadius" Value="85"/>
+
+					<Setter Property="EdgeBackground" Value="DodgerBlue"/> <!-- Background border Pie --> 
+					<Setter Property="EdgePadding" Value="7"/>
+					<Setter Property="EdgeInnerRadius" Value="130"/>
+					<Setter Property="EdgeOuterRadius" Value="145"/>
+
+					<Setter Property="ArrowBackground" Value="white"/> <!-- Background arrow --> 
+					<Setter Property="ArrowRadius" Value="138"/>
+				</Style>									
+			</RadialMenu:RadialMenu.Resources>	
+		
+			<RadialMenu:RadialMenu.CentralItem>
+				<RadialMenu:RadialMenuCentralItem Name="M_Back" Command="{Binding CloseRadialMenu1}">
+				     <iconPacks:PackIconFontAwesome Kind="UndoAltSolid" Width="25" Height="25" />
+				</RadialMenu:RadialMenuCentralItem>
+			</RadialMenu:RadialMenu.CentralItem>
+
+			<RadialMenu:RadialMenuItem Name="M_Drag_Drop" Command="{Binding Test1}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconFontAwesome Kind="ExpandArrowsAltSolid" Margin="25 0 0 5 " Width="25" Height="25" />
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Move Apps
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+
+			<RadialMenu:RadialMenuItem Name="M_Launch_Project" Command="{Binding Test2}" IsEnabled="false">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconMaterial Kind="RunFast" Margin="25 0 0 5 " Width="25" Height="25"/>
+					<TextBlock FontSize="14" TextAlignment="Center">
+						Run Project 
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+			
+			<RadialMenu:RadialMenuItem Name="M_Create_Project" Command="{Binding Test2}"  IsEnabled="false">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconEntypo Kind="New"  Margin="25 0 0 5 " Width="27" Height="27" />
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0 ">
+						Create project
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="M_Open_Windows_Properties" Command="{Binding Test3}">
+				<WrapPanel Orientation="Vertical" >
+					<iconPacks:PackIconOcticons Kind="Browser"  Margin="20 0 0 5 " Width="25" Height="25"/>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Windows
+					</TextBlock>
+					<TextBlock FontSize="13" TextAlignment="Center">
+						Properties
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+
+			<RadialMenu:RadialMenuItem Name="M_Open_Project_Settings" Command="{Binding Test5}">
+				<WrapPanel Orientation="Vertical">
+					<iconPacks:PackIconMaterial Kind="SettingsOutline"  Margin="25 -10 0 5 " Width="27" Height="27"/>
+					<TextBlock FontSize="13" TextAlignment="Center" Margin="-5 0 0 0">
+						Project Setting
+					</TextBlock>
+				</WrapPanel>
+			</RadialMenu:RadialMenuItem>
+		</RadialMenu:RadialMenu>
+		
+        </Grid>
+</Window>     
+
+
+   
+   
+    
+    
+    
